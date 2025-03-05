@@ -42,24 +42,24 @@
             margin-bottom: 30px;
         }
 
-        /* IMAGE SLIDER */
+        /* IMAGE SLIDER FIXED */
         .slider-container {
             position: relative;
-            width: 320px;
-            height: 600px;
+            width: 100%;
+            max-width: 350px;
             overflow: hidden;
             border-radius: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         .slider {
             display: flex;
-            width: 200%;
             transition: transform 0.5s ease-in-out;
         }
         .slider img {
             width: 100%;
-            object-fit: cover;
+            height: auto;
             border-radius: 20px;
+            object-fit: contain; /* Fixes cropping */
         }
         .prev, .next {
             position: absolute;
@@ -146,28 +146,3 @@
 
     <script>
         /* JavaScript for Image Slider */
-        let currentIndex = 0;
-        const slides = document.querySelectorAll(".slider img");
-        const totalSlides = slides.length;
-
-        function showSlide(index) {
-            const slider = document.querySelector(".slider");
-            if (index >= totalSlides) {
-                currentIndex = 0;
-            } else if (index < 0) {
-                currentIndex = totalSlides - 1;
-            } else {
-                currentIndex = index;
-            }
-            slider.style.transform = `translateX(${-currentIndex * 100}%)`;
-        }
-
-        function prevSlide() { showSlide(currentIndex - 1); }
-        function nextSlide() { showSlide(currentIndex + 1); }
-
-        /* Auto-slide every 5 seconds */
-        setInterval(() => { nextSlide(); }, 5000);
-    </script>
-
-</body>
-</html>
