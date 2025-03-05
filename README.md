@@ -1,1 +1,72 @@
-Update
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tip Tip Hooray</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px 0;
+            font-size: 24px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            color: white;
+            background-color: #007bff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+        footer {
+            margin-top: 40px;
+            padding: 10px;
+            background: #007bff;
+            color: white;
+        }
+        a {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        Tip Tip Hooray
+    </header>
+
+    <div class="container">
+        <h1>Welcome to Tip Tip Hooray!</h1>
+        <p>A simple, fast, and ad-free tip calculator.</p>
+        <a href="https://apps.apple.com" class="button">Download the App</a>
+    </div>
+
+    <footer>
+        Contact Support: <a href="mailto:TipTipHoorayApp@gmail.com">TipTipHoorayApp@gmail.com</a>
+    </footer>
+
+</body>
+</html>
