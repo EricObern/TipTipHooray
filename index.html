@@ -4,8 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tip Tip Hooray! – Simple & Fast Tip Calculator</title>
+
+    <!-- SEO & Open Graph Meta Tags -->
+    <meta name="description" content="Tip Tip Hooray! A sleek, fast, and ad-free tip calculator designed for simplicity and efficiency.">
+    <meta property="og:title" content="Tip Tip Hooray!">
+    <meta property="og:description" content="A sleek and fast tip calculator for effortless tipping.">
+    <meta property="og:image" content="https://yourdomain.com/preview.png">
+    <meta property="og:url" content="https://yourdomain.com">
+
+    <!-- Apple-Like Global Styles -->
     <style>
-        /* Apple-Like Global Styles */
+        /* Apple-System Fonts & Layout */
         body {
             margin: 0;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -14,36 +23,58 @@
             line-height: 1.6;
             text-align: center;
         }
+
+        /* Apple-Style Navigation Bar */
         header {
-            background-color: #fff;
-            padding: 20px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            font-size: 24px;
-            font-weight: 600;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background: rgba(255, 255, 255, 0.9);
+            font-size: 20px;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            z-index: 1000;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
         }
+
         main {
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 40px 20px;
+            padding: 100px 20px 40px;
         }
+
+        /* Apple-Style Hero Section */
         .hero {
             text-align: center;
             margin-bottom: 40px;
-        }
-        .hero h2 {
-            font-size: 42px;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-        .hero p {
-            font-size: 20px;
-            color: #6e6e73;
-            margin-bottom: 30px;
-            max-width: 600px;
+            opacity: 0;
+            transform: translateY(10px);
+            animation: fadeIn 0.8s ease-out forwards;
         }
 
-        /* IMAGE SLIDER */
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h2 {
+            font-size: 48px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 22px;
+            color: #8E8E93;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Apple-Like Image Slider */
         .slider-container {
             position: relative;
             width: 100%;
@@ -53,16 +84,19 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             margin-bottom: 40px;
         }
+
         .slider {
             display: flex;
             transition: transform 0.5s ease-in-out;
         }
+
         .slider img {
             width: 100%;
             height: auto;
             border-radius: 20px;
             object-fit: contain;
         }
+
         .prev, .next {
             position: absolute;
             top: 50%;
@@ -77,33 +111,36 @@
             transition: background-color 0.3s ease;
             backdrop-filter: blur(10px);
         }
+
         .prev { left: 10px; }
         .next { right: 10px; }
         .prev:hover, .next:hover {
             background-color: rgba(0, 0, 0, 0.4);
         }
 
-        /* Call-to-Action Button */
+        /* Apple-Style CTA Button */
         .cta {
             margin-top: 30px;
         }
+
         .cta a {
             display: inline-block;
-            padding: 15px 30px;
-            background-color: #007AFF;
+            padding: 18px 36px;
+            background: linear-gradient(to bottom, #007AFF, #005BBB);
             color: #fff;
-            font-size: 20px;
+            font-size: 22px;
             font-weight: 600;
             text-decoration: none;
-            border-radius: 12px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-            transition: background-color 0.3s ease, box-shadow 0.3s ease;
-        }
-        .cta a:hover {
-            background-color: #005BBB;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 30px;
+            transition: transform 0.2s ease, box-shadow 0.3s ease;
         }
 
+        .cta a:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 122, 255, 0.3);
+        }
+
+        /* Apple-Style Footer */
         footer {
             margin-top: 50px;
             padding: 20px;
@@ -111,12 +148,20 @@
             color: #6E6E73;
             font-size: 14px;
         }
+
         footer a {
             color: #007AFF;
             text-decoration: none;
         }
+
         footer a:hover {
             text-decoration: underline;
+        }
+
+        /* Accessibility & Focus Styles */
+        button:focus, a:focus {
+            outline: 2px solid #007AFF;
+            outline-offset: 2px;
         }
     </style>
 </head>
@@ -133,11 +178,11 @@
         <!-- Image Slider -->
         <div class="slider-container">
             <div class="slider">
-                <img src="https://raw.githubusercontent.com/EricObern/TipTipHooray/main/01.png" alt="Tip Tip Hooray Screenshot 1">
-                <img src="https://raw.githubusercontent.com/EricObern/TipTipHooray/main/02.png" alt="Tip Tip Hooray Screenshot 2">
+                <img src="01.webp" alt="Tip Tip Hooray Screenshot 1" loading="lazy">
+                <img src="02.webp" alt="Tip Tip Hooray Screenshot 2" loading="lazy">
             </div>
-            <button class="prev" onclick="prevSlide()">◀</button>
-            <button class="next" onclick="nextSlide()">▶</button>
+            <button class="prev" onclick="prevSlide()" aria-label="Previous slide">◀</button>
+            <button class="next" onclick="nextSlide()" aria-label="Next slide">▶</button>
         </div>
 
         <section class="cta">
@@ -151,40 +196,21 @@
     </footer>
 
     <script>
-        /* JavaScript for Image Slider */
+        /* Optimized Image Slider */
         let currentIndex = 0;
         const slides = document.querySelectorAll(".slider img");
         const totalSlides = slides.length;
 
         function showSlide(index) {
-            if (index >= totalSlides) {
-                currentIndex = 0;
-            } else if (index < 0) {
-                currentIndex = totalSlides - 1;
-            } else {
-                currentIndex = index;
-            }
+            currentIndex = (index + totalSlides) % totalSlides;
             document.querySelector(".slider").style.transform = `translateX(${-currentIndex * 100}%)`;
         }
 
-        function prevSlide() {
-            currentIndex--;
-            if (currentIndex < 0) {
-                currentIndex = totalSlides - 1;
-            }
-            showSlide(currentIndex);
-        }
-
-        function nextSlide() {
-            currentIndex++;
-            if (currentIndex >= totalSlides) {
-                currentIndex = 0;
-            }
-            showSlide(currentIndex);
-        }
+        function prevSlide() { showSlide(currentIndex - 1); }
+        function nextSlide() { showSlide(currentIndex + 1); }
 
         /* Auto-slide every 5 seconds */
-        setInterval(() => { nextSlide(); }, 5000);
+        setInterval(nextSlide, 5000);
     </script>
 
 </body>
