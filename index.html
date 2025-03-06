@@ -50,16 +50,6 @@
         .hero {
             text-align: center;
             margin-bottom: 40px;
-            opacity: 0;
-            transform: translateY(10px);
-            animation: fadeIn 0.8s ease-out forwards;
-        }
-
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         .hero h2 {
@@ -74,11 +64,11 @@
             margin: 0 auto;
         }
 
-        /* Apple-Like Image Slider */
+        /* Apple-Style Image Slider */
         .slider-container {
             position: relative;
             width: 100%;
-            max-width: 350px;
+            max-width: 360px;
             overflow: hidden;
             border-radius: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -94,17 +84,17 @@
             width: 100%;
             height: auto;
             border-radius: 20px;
-            object-fit: contain;
+            object-fit: cover; /* Ensures images fit properly */
         }
 
         .prev, .next {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.2);
+            background-color: rgba(0, 0, 0, 0.3);
             color: white;
             border: none;
-            font-size: 20px;
+            font-size: 24px;
             padding: 10px;
             cursor: pointer;
             border-radius: 50%;
@@ -115,10 +105,10 @@
         .prev { left: 10px; }
         .next { right: 10px; }
         .prev:hover, .next:hover {
-            background-color: rgba(0, 0, 0, 0.4);
+            background-color: rgba(0, 0, 0, 0.6);
         }
 
-        /* Apple-Style CTA Button */
+        /* Apple-Style CTA Button (Fixed) */
         .cta {
             margin-top: 30px;
         }
@@ -131,13 +121,14 @@
             font-size: 22px;
             font-weight: 600;
             text-decoration: none;
-            border-radius: 30px;
+            border-radius: 50px; /* Fully rounded pill shape */
             transition: transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 122, 255, 0.3);
         }
 
         .cta a:hover {
             transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(0, 122, 255, 0.3);
+            box-shadow: 0 6px 15px rgba(0, 122, 255, 0.4);
         }
 
         /* Apple-Style Footer */
@@ -157,12 +148,6 @@
         footer a:hover {
             text-decoration: underline;
         }
-
-        /* Accessibility & Focus Styles */
-        button:focus, a:focus {
-            outline: 2px solid #007AFF;
-            outline-offset: 2px;
-        }
     </style>
 </head>
 <body>
@@ -175,11 +160,11 @@
             <p>A sleek, fast, and ad-free tip calculator designed for simplicity and efficiency.</p>
         </section>
 
-        <!-- Image Slider -->
+        <!-- Image Slider (Fixed) -->
         <div class="slider-container">
             <div class="slider">
-                <img src="01.webp" alt="Tip Tip Hooray Screenshot 1" loading="lazy">
-                <img src="02.webp" alt="Tip Tip Hooray Screenshot 2" loading="lazy">
+                <img src="https://raw.githubusercontent.com/EricObern/TipTipHooray/main/01.png" alt="Tip Tip Hooray Screenshot 1" loading="lazy">
+                <img src="https://raw.githubusercontent.com/EricObern/TipTipHooray/main/02.png" alt="Tip Tip Hooray Screenshot 2" loading="lazy">
             </div>
             <button class="prev" onclick="prevSlide()" aria-label="Previous slide">◀</button>
             <button class="next" onclick="nextSlide()" aria-label="Next slide">▶</button>
@@ -195,23 +180,4 @@
         <p><a href="https://ericobern.github.io/TipTipHooray/privacy-policy.html">Privacy Policy</a></p>
     </footer>
 
-    <script>
-        /* Optimized Image Slider */
-        let currentIndex = 0;
-        const slides = document.querySelectorAll(".slider img");
-        const totalSlides = slides.length;
-
-        function showSlide(index) {
-            currentIndex = (index + totalSlides) % totalSlides;
-            document.querySelector(".slider").style.transform = `translateX(${-currentIndex * 100}%)`;
-        }
-
-        function prevSlide() { showSlide(currentIndex - 1); }
-        function nextSlide() { showSlide(currentIndex + 1); }
-
-        /* Auto-slide every 5 seconds */
-        setInterval(nextSlide, 5000);
-    </script>
-
-</body>
-</html>
+    <s
