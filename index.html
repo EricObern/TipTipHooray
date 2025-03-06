@@ -74,7 +74,7 @@
             margin: 0 auto;
         }
 
-        /* Apple-Style Image Slider (Fixed) */
+        /* Apple-Style Image Slider */
         .slider-container {
             position: relative;
             width: 100%;
@@ -88,35 +88,20 @@
 
         .slider {
             display: flex;
-            transition: transform 0.5s ease-in-out;
+            animation: slide 8s infinite alternate ease-in-out;
+        }
+
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            50% { transform: translateX(-100%); }
+            100% { transform: translateX(0); }
         }
 
         .slider img {
             width: 100%;
-            height: 100%;
-            object-fit: cover; /* Ensures images fit properly */
+            height: auto;
+            object-fit: cover;
             border-radius: 20px;
-        }
-
-        .prev, .next {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.3);
-            color: white;
-            border: none;
-            font-size: 24px;
-            padding: 10px;
-            cursor: pointer;
-            border-radius: 50%;
-            transition: background-color 0.3s ease;
-            backdrop-filter: blur(10px);
-        }
-
-        .prev { left: 10px; }
-        .next { right: 10px; }
-        .prev:hover, .next:hover {
-            background-color: rgba(0, 0, 0, 0.6);
         }
 
         /* Apple-Style CTA Button */
@@ -159,6 +144,13 @@
         footer a:hover {
             text-decoration: underline;
         }
+
+        /* Small Version Number */
+        .version {
+            font-size: 12px;
+            color: #A1A1A6;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
@@ -177,8 +169,6 @@
                 <img src="https://raw.githubusercontent.com/EricObern/TipTipHooray/main/01.png" alt="Tip Tip Hooray Screenshot 1" loading="lazy">
                 <img src="https://raw.githubusercontent.com/EricObern/TipTipHooray/main/02.png" alt="Tip Tip Hooray Screenshot 2" loading="lazy">
             </div>
-            <button class="prev" onclick="prevSlide()" aria-label="Previous slide">◀</button>
-            <button class="next" onclick="nextSlide()" aria-label="Next slide">▶</button>
         </div>
 
         <section class="cta">
@@ -189,25 +179,8 @@
     <footer>
         <p>Contact Support: <a href="mailto:TipTipHoorayApp@gmail.com">TipTipHoorayApp@gmail.com</a></p>
         <p><a href="https://ericobern.github.io/TipTipHooray/privacy-policy.html">Privacy Policy</a></p>
+        <p class="version">Version 1.0.3</p>
     </footer>
-
-    <script>
-        /* Optimized Image Slider */
-        let currentIndex = 0;
-        const slides = document.querySelectorAll(".slider img");
-        const totalSlides = slides.length;
-
-        function showSlide(index) {
-            currentIndex = (index + totalSlides) % totalSlides;
-            document.querySelector(".slider").style.transform = `translateX(${-currentIndex * 100}%)`;
-        }
-
-        function prevSlide() { showSlide(currentIndex - 1); }
-        function nextSlide() { showSlide(currentIndex + 1); }
-
-        /* Auto-slide every 5 seconds */
-        setInterval(nextSlide, 5000);
-    </script>
 
 </body>
 </html>
